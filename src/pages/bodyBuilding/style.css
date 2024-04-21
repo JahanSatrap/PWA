@@ -1,0 +1,64 @@
+.closetContainer{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.closetNumberText{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: larger;
+    color: var(--color--primary);
+}
+.closetSelectionAttentionText{
+    margin-top: 20px;
+}
+.serviceStatusPanelContainer{
+    width: 80%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex:1
+}
+
+@keyframes blinkL {
+    0%, 50%,100%  {
+        fill: #494c4e; /* Initial color */
+    }
+    25%, 75% {
+        fill: red; /* Color change during animation */
+    }
+}
+.blinkingLock {
+animation: blinkL 2s infinite;
+}
+
+@keyframes blinkU {
+0%, 50%,100%  {
+    fill: #494c4e; /* Initial color */
+    }
+    25%, 75% {
+    fill: green; /* Color change during animation */
+    }
+}
+.blinkingUnLock {
+animation: blinkU 2s infinite;
+}
+
+.actionButtonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: 40px;
+}
+.closetActionButtons {
+    height: 40%
+}

@@ -1,0 +1,1 @@
+export const closetMessage = "شما یک کمد فعال دارید. لطفا آن را رهاسازی کنید"

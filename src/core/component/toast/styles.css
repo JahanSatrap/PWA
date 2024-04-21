@@ -1,0 +1,23 @@
+.app_toast_container{
+    z-index: 1;
+    position: absolute;
+    top: 5%;
+    background-color: #eaeaea;
+    min-width: 50%;
+    height: 60px;
+    border-radius: 10px;
+    font-size:larger;
+}
+.success{
+    border-bottom: 7px #408500 solid;
+}
+.error{
+    border-bottom: 5px red solid;
+}
+@media screen and (max-width: 1000px) {
+    .app_toast_container{
+        width: 90%;
+        height: 120px;
+        font-size: 40px;
+    } 
+}

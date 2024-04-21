@@ -1,0 +1,8 @@
+.dashCardsContainer{
+    width: 80%;
+    height: calc(100% - 20px - 30px);
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10%;
+}

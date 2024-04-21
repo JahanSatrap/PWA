@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'mulish-regular';
+  src: local('mulish-regular'), url(font/Mulish-Regular.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'vazir-light';
+  src: local('vazir-light'), url(font/Vazirmatn-Light.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'vazir-medium';
+  src: local('vazir-medium'), url(font/Vazirmatn-Medium.ttf) format('opentype');
+}
+
+:root{
+  --color--primary: #800080;
+  --color--primary-disabled: #603360;
+  --color-placeholder: #808080;
+}
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#root{
+  background-color: white;
+  width: 100vw;
+  font-family: vazir-light;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top_container{
+  width: 1000px;
+  background-color: #eaeaea;
+  position: relative;
+  font-size: 4px;
+}
+@media screen and (max-width: 1000px) {
+  .top_container{
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #root {
+    max-width: 100%;
+  }
+}
+.authBannerBackground{
+  background-color: var(--color--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  padding: 1% 0 1% 0;
+  width: 100%;
+}
+
+.generalMainContainer{
+  background-color: #F5F5F5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/*Override the react multi date picker style*/
+.rmdp-input{
+  border: 2px solid var(--color-placeholder) !important;
+  border-radius: 12px !important;
+  box-sizing: border-box;
+  color: #252525;
+  font-size: 14px;
+  font-weight: 400;
+  height: 100% !important;
+  outline: none;
+  padding: 0 20px;
+  width: 100%;
+  z-index: 0;
+  font-family: "vazir-light";
+}
+rmdp-input::before {
+  content: "Read this: ";
+}
+
+.default_card_style{
+  background-color: var(--color--primary);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+}

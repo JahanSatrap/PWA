@@ -1,0 +1,22 @@
+.app_input_style{
+    border: 2px solid var(--color-placeholder);
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #252525;
+    font-size: 14px;
+    font-weight: 400;
+    height: 48px;
+    outline: none;
+    padding: 0 20px;
+    width: 80%;
+    font-family: "vazir-light";
+    direction: rtl;
+}
+@media screen and (max-width: 1000px) {
+    .app_input_style {
+      height: 120px;
+      font-size: 40px;
+      width: 90%;
+      direction: rtl;
+    }
+}
