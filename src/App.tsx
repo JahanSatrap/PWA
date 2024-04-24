@@ -46,7 +46,7 @@ function Starter() {
         <BrowserRouter>
           <Toast />
           <Routes>
-          {true
+          {isAuthenticated
           ?
             (
                 <Route path="/">
