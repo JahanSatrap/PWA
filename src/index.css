@@ -52,13 +52,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20%;
+  height: 30%;
   padding: 1% 0 1% 0;
   width: 100%;
 }
 
 .generalMainContainer{
-  background-color: #F5F5F5;
   height: 100%;
   width: 100%;
   display: flex;
@@ -67,9 +66,7 @@ body {
   align-items: center;
 }
 
-/*Override the react multi date picker style*/
 .rmdp-input{
-  border: 2px solid var(--color-placeholder) !important;
   border-radius: 12px !important;
   box-sizing: border-box;
   color: #252525;
@@ -77,10 +74,10 @@ body {
   font-weight: 400;
   height: 100% !important;
   outline: none;
-  padding: 0 20px;
   width: 100%;
   z-index: 0;
   font-family: "vazir-light";
+  border: none;
 }
 rmdp-input::before {
   content: "Read this: ";
@@ -91,4 +88,13 @@ rmdp-input::before {
   padding: 5px 10px;
   border-radius: 10px;
   color: white;
+  height: 10vh;
+  font-weight:700;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.box-center{
+  justify-content: center;
+  align-items: center;
 }

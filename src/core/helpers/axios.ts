@@ -1,5 +1,4 @@
 import axios, { AxiosError } from 'axios'
-// import {errorToast} from '../services/message/toast'
 import { host } from '../../constant/addresses'
 
 axios.interceptors.request.use(

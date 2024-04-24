@@ -15,9 +15,9 @@
         cursor: pointer;
         border: none;
         width: 50%;
-        height: 100px;
+        height: 5vh;
         border-radius: 10px;
-        font-size: 42px;
+        font-size: 5vw;
         font-family: "vazir-medium";
         border-radius: 14px;
     } 

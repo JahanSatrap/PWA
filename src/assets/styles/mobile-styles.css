@@ -1,0 +1,5 @@
+@media screen and (max-width: 1000px) {
+    .app_info_text {
+        font-size: 3vh;
+    }   
+}

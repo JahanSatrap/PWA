@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../redux-toolkit/store/hooks"
 import { setIsSuccessful } from '../../redux-toolkit/features/bodybuilding/bodyBuilding-slice'
 import { useLocation, useNavigate } from 'react-router'
 import { Button } from '../../core/component'
+import image from "../../assets/icons/checked1.png"
 
 import './style.css'
 import { device } from '../../constant/info'
@@ -25,7 +26,7 @@ const ServiceStatus = () => {
         <div className="generalMainContainer" style={{paddingTop:80, paddingBottom: 20, boxSizing:'border-box'}}>
             <div style={{display:'flex', flexDirection:'column',alignItems:'center'}}>
                 <img
-                    src={require("../../assets/icons/checked1.png")}
+                    src={image}
                     alt="checked"
                     style={{width:180,height:180}}
                 />
@@ -35,17 +36,16 @@ const ServiceStatus = () => {
                 {state.serviceRequestResult.map((item,index) => {
                     return (
                         // <span key={index}>{item.BodyBuildingService.Title}:  {item.RemaineCount} باقی مانده از {item.ServiceCount}</span>
-                        <div style={{display:'flex', gap:5}}>
-                            <span className="default_card_style">باقی مانده: {item.RemaineCount}</span>
-                            <span className="default_card_style">{item.BodyBuildingService.Title}</span>
+                        <div className="serviceStatusCardContainer">
+                            <span className="default_card_style" style={{width:'40%'}}>باقی مانده: {item.RemaineCount}</span>
+                            <span className="default_card_style" style={{width:'60%'}}>{item.BodyBuildingService.Title}</span>
                         </div>
                     )
                 })}
                 {state.requestedDevice?.BodyBuildingDeviceId === device.BodyBuilding.BodyBuildingDeviceId &&
                  state.assignedCloset
                     ? <Button
-                    style={{height:40}}
-                    className="default_button_style"
+                    className="app_button_style"
                     text="درخواست کمد"
                     onClick={onClosetPageRequestClick}
                 /> 

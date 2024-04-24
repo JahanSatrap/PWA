@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import './core/helpers/axios'
+import './assets/styles/desktop-styles.css'
+import './assets/styles/mobile-styles.css'
 
 import Login from "./pages/authentication/login"
 import SignUp from "./pages/authentication/signup"
@@ -16,8 +18,9 @@ import { loadClosetFromLocal } from './redux-toolkit/features/bodybuilding/actio
 
 import {ThreeDots} from 'react-loader-spinner'
 import { Toast } from './core/component'
+import { isTouchable } from './core/helpers/utils'
 
-function App() {
+function Starter() {
   const dispatch = useAppDispatch()
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
   
@@ -43,7 +46,7 @@ function App() {
         <BrowserRouter>
           <Toast />
           <Routes>
-          {isAuthenticated
+          {true
           ?
             (
                 <Route path="/">
@@ -66,5 +69,12 @@ function App() {
         </BrowserRouter>
   );
 }
-
+function App() {
+  if (!isTouchable()){
+    return <Starter />
+  }
+  else{
+    return <Starter />
+  }
+}
 export default App;

@@ -6,6 +6,9 @@ import { setClosetPost, setFreeClosetPost } from '../../../core/services/network
 import { resetSession, setLoading } from './bodyBuilding-slice'
 import { setCloset } from './bodyBuilding-slice'
 import { AxiosResponse } from 'axios'
+import { useCreateToast } from '../toast/hooks'
+import { addToast } from '../toast/toast-slice'
+import { MessageType } from '../../../constant/types/slices/toast-slice'
 
 export const addDevice = createAction('device/add', function prepare(d: IDeviceNet) {
     const device: IDevice = {
@@ -26,7 +29,7 @@ export const setClosetAction = createAsyncThunk(
         try{
             const response = await setClosetPost(closetId)
             if (typeof(response.data.Entity) === "boolean")
-                successToast("کمد باز شد")
+                thunkAPI.dispatch(addToast({message:"کمد باز شد", messageType:MessageType.error}))
             thunkAPI.dispatch(setLoading(false))
             thunkAPI.dispatch(setCloset(true))
             const closet = {isClosetSet: true, closetId:closetId, title: title }
@@ -36,7 +39,7 @@ export const setClosetAction = createAsyncThunk(
             const error = err as ISetCloseResult
             if (error.ResultText.length > 0){
                 thunkAPI.dispatch(setLoading(false))
-                errorToast(error.ResultText)
+                thunkAPI.dispatch(addToast({message:error.ResultText, messageType:MessageType.error}))
             }
         }
     },
@@ -66,19 +69,19 @@ export const setFreeClosetAction = createAsyncThunk(
             const response = await setFreeClosetPost(closetId)
             thunkAPI.dispatch(setLoading(false))
             if (response.data === true){
-              successToast("کمد رها شد")
+              useCreateToast("کمد رها شد","success")
               localStorage.removeItem('closet')
               thunkAPI.dispatch(resetSession())
               return Promise.resolve("success")
             }
             else{
-              errorToast("رها سازی انجام نشد. بعدا تلاش نمایید")
+              thunkAPI.dispatch(addToast({message:"رها سازی انجام نشد. بعدا تلاش نمایید", messageType:MessageType.error}))
               return Promise.resolve("fail")
             }
         }
         catch(err){
             const error = err as string
-            errorToast(error)
+            thunkAPI.dispatch(addToast({message:error, messageType:MessageType.error}))
         }
     },
   )

@@ -4,6 +4,8 @@ import persian_fa from 'react-date-object/locales/persian_fa'
 import {Controller} from 'react-hook-form'
 import DateObject from 'react-date-object'
 
+import './style.css'
+
 const Date = ({control}:{control: any}) => {
   return (
       <Controller
@@ -13,7 +15,7 @@ const Date = ({control}:{control: any}) => {
         render={({
                    field: { onChange, value },
                  }) => (
-          <div style={{width: "80%", height: 50, alignItems:'flex-start', flexDirection:'column'}}>
+          <div className="dateMainContainer">
             <DatePicker
               value={value || ""}
               onChange={(date: DateObject) => {
@@ -23,8 +25,8 @@ const Date = ({control}:{control: any}) => {
               locale={persian_fa}
               placeholder='تاریخ تولد'
               format="YYYY-MM-DD"
-              style={{fontFamily:"vazir-light", width:"100%", height:"100%",direction:'rtl'}}
-              containerStyle = {{width:"100%", height:"100%"}}
+              style={{fontFamily:"vazir-light",direction:'rtl'}}
+              containerClassName='dateContainer'
               mapDays={({date}) => {
                 let props: any = {}
                 if (date.weekDay.index === 6) {

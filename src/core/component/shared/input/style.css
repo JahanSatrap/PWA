@@ -1,11 +1,11 @@
 .app_input_style{
-    border: 2px solid var(--color-placeholder);
+  border: none;
     border-radius: 15px;
     box-sizing: border-box;
     color: #252525;
     font-size: 14px;
     font-weight: 400;
-    height: 48px;
+    height: 7vh;
     outline: none;
     padding: 0 20px;
     width: 80%;
@@ -14,8 +14,8 @@
 }
 @media screen and (max-width: 1000px) {
     .app_input_style {
-      height: 120px;
-      font-size: 40px;
+      height: 6vh;
+      font-size: 5vw;
       width: 90%;
       direction: rtl;
     }

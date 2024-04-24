@@ -8,6 +8,9 @@ import { useLocation } from 'react-router-dom';
 
 import { device } from '../../constant/info';
 import { closetMessage } from '../../constant/types/message';
+import { useToastDismiss } from '../../redux-toolkit/features/toast/hooks';
+import toast from 'react-hot-toast';
+import { toastDismiss } from '../../redux-toolkit/features/toast/toast-slice';
 
 
 const QRCode = () => {
@@ -41,7 +44,7 @@ const QRCode = () => {
 
     React.useEffect(() => {
         if (isSuccessful){
-            // toast.dismiss()
+            dispatch(toastDismiss())
             setTimeout(() => {
                 if (serviceRequestResult[0]?.BodyBuildingService.DeviceId === 2){
                     navigate('/serviceStatus',{replace:true,state:{"isCloset":true}})
@@ -64,7 +67,13 @@ const QRCode = () => {
     //     onDecodeHandler(device.BodyBuilding.DeviceGuid)
     // },[])
     return (
-        <div className='generalMainContainer'>
+        <div className='generalMainContainer box-center'>
+            <QrScanner
+                containerStyle={{marginTop:40, width: '90%', height: 80, borderRadius:40}}
+                onDecode={(result) => onDecodeHandler(result)}
+                stopDecoding = {isLoading}
+                audio={true}
+                />
                 {
                 isLoading
                 ?
@@ -80,16 +89,9 @@ const QRCode = () => {
                             wrapperClass=""
                         />
                     )
-                : <span>برای ادامه بارکد موجود را اسکن نمایید</span>
+                : <span className='app_info_text'>برای ادامه بارکد موجود را اسکن نمایید</span>
 
                 }
-            <QrScanner
-                containerStyle={{width: '100%', height: 80}}
-                onDecode={(result) => onDecodeHandler(result)}
-                stopDecoding = {isLoading}
-                audio={true}
-            />
-            
         </div>
     )
 }

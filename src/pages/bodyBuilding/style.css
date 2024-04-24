@@ -4,13 +4,17 @@
     justify-content: center;
     align-items: center;
 }
+.closetIcon{
+    width: 100%
+}
+
 .closetNumberText{
     display: flex;
     position: absolute;
     justify-content: center;
     align-items: center;
     font-weight: bolder;
-    font-size: larger;
+    font-size: 5vw;
     color: var(--color--primary);
 }
 .closetSelectionAttentionText{
@@ -23,9 +27,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    flex:1
+    flex:1;
 }
-
+.serviceStatusCardContainer{
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    font-size: 4vw;
+}
 @keyframes blinkL {
     0%, 50%,100%  {
         fill: #494c4e; /* Initial color */

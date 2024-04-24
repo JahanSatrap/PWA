@@ -1,0 +1,15 @@
+.dateMainContainer{
+    height: 7vh;
+    width: 80%;
+}
+.dateContainer{
+    width: 100%;
+    height: 100% !important;
+}
+@media screen and (max-width: 1000px) {
+    .dateMainContainer {
+      height: 7vh;
+      font-size: 5vw;
+      width: 90%;
+    }
+}

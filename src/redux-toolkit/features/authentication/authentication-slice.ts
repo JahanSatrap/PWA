@@ -4,6 +4,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {IAuthSliceInit, ISignUpParams} from '../../../constant/types/slices/authentication-slice-type'
 import {ILoginParams} from '../../../constant/types/slices/authentication-slice-type'
 import {host} from '../../../constant/addresses'
+import { useCreateToast } from '../toast/hooks'
 
 const initialState: IAuthSliceInit = {
   user: {
@@ -43,7 +44,7 @@ export const userSignUp = createAsyncThunk('auth/signUp', async (value: ISignUpP
     thunkAPI.dispatch(authSlice.actions.loading(true))
     await axios.post(`${host}/pwa/SignUp`, value)
     thunkAPI.dispatch(authSlice.actions.loading(false))
-    // successToast('ثبت نام با موفقیت انجام شد')
+    useCreateToast('ثبت نام با موفقیت انجام شد', 'success')
   } catch (err: unknown) {
     const error = err as Error
     thunkAPI.dispatch(authSlice.actions.loading(false))

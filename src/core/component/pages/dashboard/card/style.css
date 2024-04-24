@@ -1,5 +1,5 @@
 .dashCardContainer{
-    height: 200px;
+    height: 70%;
     background-color: #CCCCCC;
     border-radius: 6px;
     margin: 6% 0 6% 0;
@@ -8,9 +8,15 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 5vw;
     font-weight: 600;
     cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+    .dashCardContainer{
+        font-size: 7vw;
+    }
+
 }
 .dashCardContainer[data-inactive=true]{
     background-color: #FFFFFF;

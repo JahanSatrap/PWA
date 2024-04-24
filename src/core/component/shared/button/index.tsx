@@ -3,6 +3,9 @@ import { IInputComponentPropsType } from "../../../../constant/types/components/
 import "./style.css"
 import {ThreeDots} from 'react-loader-spinner'
 
+const height = window.innerHeight
+const width = window.innerWidth
+
 const Button = ({text,loading, disabled=false,...props}:IInputComponentPropsType) => {
   return (
         <button
@@ -15,8 +18,7 @@ const Button = ({text,loading, disabled=false,...props}:IInputComponentPropsType
                   ?
                   <ThreeDots
                     visible={true}
-                    height="40"
-                    width="40"
+                    width= {width * 0.1}
                     color="white"
                     radius="9"
                     ariaLabel="three-dots-loading"
@@ -26,7 +28,7 @@ const Button = ({text,loading, disabled=false,...props}:IInputComponentPropsType
                   :
                   <div className="generalButtonContainer">
                     {text}
-                    {props.endAdornment} 
+                    {props.endadornment} 
                   </div>
                 }
 

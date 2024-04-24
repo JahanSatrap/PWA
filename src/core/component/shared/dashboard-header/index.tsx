@@ -17,11 +17,11 @@ const Header = () => {
     return (
         <div className="DashHeaderMainContainer">
             <div className="DashHeaderLeftContainer">
-                <Avatar name={auth.user.username} className="DashHeaderAvatar" size="50"/>
+                <Avatar name={auth.user.username} className="DashHeaderAvatar" size="70"/>
                 <div>{auth.user.username}</div>
             </div>
             <div className="DashHeaderLogout" onClick={onLogout}>
-                <IoIosLogOut size={20}/>
+                <IoIosLogOut size={50}/>
             </div>
         </div>
     )

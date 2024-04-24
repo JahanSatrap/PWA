@@ -9,10 +9,10 @@ import { useLocation, useNavigate } from "react-router"
 import { Button } from "../../core/component"
 import { useGuardStateFromNull } from "../../core/helpers/guard"
 import { IClosetNet } from "../../core/services/network/bodyBuilding/interface"
-
+import { useCreateToast } from "../../redux-toolkit/features/toast/hooks";
 import './style.css'
 import { toFarsiNumber } from "../../core/helpers/font";
-const SVG_DIM = 150
+const SVG_DIM = 450
 
 const BodyBuilding = () => {
     const state = useAppSelector((state) => state.bodyBuilding)
@@ -37,7 +37,7 @@ const BodyBuilding = () => {
     React.useEffect(() => {
         guard()
         if (loc?.state?.message){
-            // errorToast(loc?.state?.message)
+            useCreateToast(loc?.state?.message, "error")
         }
     },[])
     const loc = useLocation()
@@ -47,21 +47,21 @@ const BodyBuilding = () => {
                 className="closetContainer" 
                 style={{width:SVG_DIM, height:SVG_DIM, margin:20}}
             >
-                <Locker />
+                <img src={Locker} className="closetIcon"/>
                 <span className="closetNumberText" style={{top:(SVG_DIM/1.5), width:SVG_DIM}}>
                     {toFarsiNumber(state?.assignedCloset?.Title??"")}
                 </span>
             </div>
             <section className="actionButtonContainer">
                 <Button 
-                    className= "closetActionButtons default_button_style" 
+                    className= "closetActionButtons app_button_style" 
                     text= "باز کردن کمد"
                     loading={actionType === "open" && state.isLoading}
                     onClick={closetOpen}
-                    endAdornment = {<FaLockOpen/>}
+                    endadornment = {<FaLockOpen/>}
                 />
                 <Button 
-                    className="closetActionButtons default_button_style" 
+                    className="closetActionButtons app_button_style" 
                     onClick={closetFree}
                     text="رهاسازی کمد"
                     loading={actionType === "close" && state.isLoading}
