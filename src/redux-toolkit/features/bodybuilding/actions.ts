@@ -29,7 +29,7 @@ export const setClosetAction = createAsyncThunk(
         try{
             const response = await setClosetPost(closetId)
             if (typeof(response.data.Entity) === "boolean")
-                thunkAPI.dispatch(addToast({message:"کمد باز شد", messageType:MessageType.error}))
+                thunkAPI.dispatch(addToast({message:"کمد باز شد", messageType:MessageType.success}))
             thunkAPI.dispatch(setLoading(false))
             thunkAPI.dispatch(setCloset(true))
             const closet = {isClosetSet: true, closetId:closetId, title: title }
@@ -69,7 +69,7 @@ export const setFreeClosetAction = createAsyncThunk(
             const response = await setFreeClosetPost(closetId)
             thunkAPI.dispatch(setLoading(false))
             if (response.data === true){
-              useCreateToast("کمد رها شد","success")
+              thunkAPI.dispatch(addToast({message:"کمد رها شد",messageType:MessageType.success}))
               localStorage.removeItem('closet')
               thunkAPI.dispatch(resetSession())
               return Promise.resolve("success")

@@ -11,6 +11,23 @@ export default defineConfig({
       registerType: 'autoUpdate',
       devOptions: {
         enabled: true
+      },
+      manifest:{
+        name: "جهان ساتراپ",
+        short_name: "جهان ساتراپ",
+        theme_color: "#800080",
+        icons: [
+          {
+            src: 'logo_with_background.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'logo_with_background.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+        ]
       }
     })
   ],

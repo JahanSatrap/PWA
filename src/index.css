@@ -36,16 +36,52 @@ body {
   background-color: #eaeaea;
   position: relative;
   font-size: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media screen and (max-width: 1000px) {
   .top_container{
     font-size: 8px;
   }
+  .rmdp-calendar{
+    padding: 1vh 4vw !important;
+  }
+  .rmdp-wrapper{
+    width: 60vw !important;
+  }
+  .rmdp-day{
+    font-size: 7vw !important;
+  }
+  .rmdp-day span {
+    font-size: 3vw !important;
+  }
+  .rmdp-header{
+    font-size: 4vw !important;
+  }
+  .rmdp-day-picker {
+    display: block !important;
+  }
+  .rmdp-calendar {
+    width: 100%
+  }
+  .rmdp-input{
+    font-size: 4vw !important;
+    color: #252525 !important;
+  }
 }
+
 @media screen and (max-width: 600px) {
   #root {
     max-width: 100%;
   }
+}
+.rmdp-day-picker {
+  display: block !important;
+}
+.rmdp-calendar {
+  width: 100%
 }
 .authBannerBackground{
   background-color: var(--color--primary);
@@ -65,7 +101,6 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-
 .rmdp-input{
   border-radius: 12px !important;
   box-sizing: border-box;
@@ -77,7 +112,7 @@ body {
   width: 100%;
   z-index: 0;
   font-family: "vazir-light";
-  border: none;
+  border: none !important;
 }
 rmdp-input::before {
   content: "Read this: ";

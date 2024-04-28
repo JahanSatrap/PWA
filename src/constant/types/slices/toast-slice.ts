@@ -1,6 +1,7 @@
 export enum MessageType {
     "error",
-    "success"
+    "success",
+    "warn"
 }
 
 export interface IToastInit {

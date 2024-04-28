@@ -12,23 +12,38 @@
     background-color: white;
     min-width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    border-radius: 20px 20px 40px 40px;
-    font-size: 3vw;
-    padding: 5% 5%;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5% 0%;
     text-align: center;
     box-sizing: border-box;
 }
-.success{
-    border-bottom: 15px #408500 solid;
+.toast_container_success{
+    border-bottom: 5px #408500 solid;
 }
-.error{
-    border-bottom: 15px red solid;
+.toast_container_error{
+    border-bottom: 5px red solid;
+}
+.toast_container_warn{
+    border-bottom: 5px #eed202  solid;
+
+}
+.toast_close_button{
+    color:black
+}
+.toast_text {
+    font-size: 1vw;
+}
+.toast_close_button{
+
 }
 @media screen and (max-width: 1000px) {
     .toast_card{
         width: 90%;
         font-size: 5vw;
     } 
+    .toast_text {
+        font-size: 4vw;
+    }
 }

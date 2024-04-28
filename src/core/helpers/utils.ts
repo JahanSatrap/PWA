@@ -6,3 +6,11 @@ export const isTouchable = () => {
         return false;
     }
 }
+
+export const isBigScreen = () => {
+    return window.innerWidth > 1200;
+}
+
+export const isPortraitScreen  = () => {
+    return window.innerHeight > window.innerWidth
+}

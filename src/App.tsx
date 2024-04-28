@@ -18,7 +18,7 @@ import { loadClosetFromLocal } from './redux-toolkit/features/bodybuilding/actio
 
 import {ThreeDots} from 'react-loader-spinner'
 import { Toast } from './core/component'
-import { isTouchable } from './core/helpers/utils'
+import { isBigScreen, isPortraitScreen, isTouchable } from './core/helpers/utils'
 
 function Starter() {
   const dispatch = useAppDispatch()
@@ -64,14 +64,15 @@ function Starter() {
                 </Route>
             )
           }
-            <Route path="*" element={<div>Not match found</div>} />
+            <Route path="*" element={<div>Match not found</div>} />
           </Routes>
         </BrowserRouter>
   );
 }
 function App() {
-  if (!isTouchable()){
-    return <Starter />
+  // if (!isTouchable() || !isPortraitScreen()){
+    if (false){
+    return <span style={{fontSize:"2vw"}}>دستگاه شما پشتیبانی نمیشود</span>
   }
   else{
     return <Starter />

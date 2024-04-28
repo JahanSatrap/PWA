@@ -5,6 +5,8 @@ import {IAuthSliceInit, ISignUpParams} from '../../../constant/types/slices/auth
 import {ILoginParams} from '../../../constant/types/slices/authentication-slice-type'
 import {host} from '../../../constant/addresses'
 import { useCreateToast } from '../toast/hooks'
+import { addToast } from '../toast/toast-slice'
+import { MessageType } from '../../../constant/types/slices/toast-slice'
 
 const initialState: IAuthSliceInit = {
   user: {
@@ -35,7 +37,6 @@ export const userLogin = createAsyncThunk('auth/login', async (value: ILoginPara
     }
   } catch (err: any) {
     thunkAPI.dispatch(authSlice.actions.loading(false))
-    console.log(err)
     // errorToast('سیستم با خطا مواجه شده است. لطفا مجددا تلاش نمایید')
   }
 })
@@ -46,13 +47,14 @@ export const userSignUp = createAsyncThunk('auth/signUp', async (value: ISignUpP
     thunkAPI.dispatch(authSlice.actions.loading(false))
     useCreateToast('ثبت نام با موفقیت انجام شد', 'success')
   } catch (err: unknown) {
-    const error = err as Error
+    const error = err as string
     thunkAPI.dispatch(authSlice.actions.loading(false))
-    if (error.message === 'لطفا وارد سیستم شوید.') {
-      // errorToast('کاربر با این شماره تلفن در سیستم وجود دارد')
+    console.log(error)
+    if (error === 'لطفا وارد سیستم شوید.') {
+      thunkAPI.dispatch(addToast({message:'کاربر با این شماره تلفن در سیستم وجود دارد', messageType:MessageType.error}))
       return
     }
-    // errorToast('سیستم با خطا مواجه شده است. لطفا مجددا تلاش نمایید')
+    thunkAPI.dispatch(addToast({message:'سیستم با خطا مواجه شده است. لطفا مجددا تلاش نمایید', messageType:MessageType.error}))
   }
 })
 export const userValidate = createAsyncThunk('auth/validate', async (_, thunkAPI) => {

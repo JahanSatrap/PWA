@@ -17,6 +17,7 @@ const Date = ({control}:{control: any}) => {
                  }) => (
           <div className="dateMainContainer">
             <DatePicker
+            
               value={value || ""}
               onChange={(date: DateObject) => {
                 onChange(date)

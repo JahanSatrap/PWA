@@ -9,10 +9,13 @@ import { IoCloseSharp } from "react-icons/io5";
 
 const getClass = (item: MessageType) => {
     if (item === MessageType.success){
-        return "success"
+        return "toast_container_success"
     }
     if (item === MessageType.error){
-        return "error"
+        return "toast_container_error"
+    }
+    if (item === MessageType.warn){
+        return "toast_container_warn"
     }
 }
 
@@ -34,8 +37,10 @@ const Toast = () => {
                         className={`toast_card ${getClass(item.messageType)}`}
                         key={item.id}
                     >
-                        <IoCloseSharp onClick={()=>onClickHandler(item.id)} style={{width: 100}} />
-                        {item.message}
+                        <IoCloseSharp className="toast_close_button" onClick={()=>onClickHandler(item.id)} style={{width: 100}} />
+                        <span className="toast_text">
+                            {item.message}
+                        </span>
                     </motion.div>
                 )
             })}

@@ -12,6 +12,8 @@ import { IClosetNet } from "../../core/services/network/bodyBuilding/interface"
 import { useCreateToast } from "../../redux-toolkit/features/toast/hooks";
 import './style.css'
 import { toFarsiNumber } from "../../core/helpers/font";
+import { addToast } from "../../redux-toolkit/features/toast/toast-slice";
+import { MessageType } from "../../constant/types/slices/toast-slice";
 const SVG_DIM = 450
 
 const BodyBuilding = () => {
@@ -36,8 +38,9 @@ const BodyBuilding = () => {
     }
     React.useEffect(() => {
         guard()
-        if (loc?.state?.message){
-            useCreateToast(loc?.state?.message, "error")
+        if (loc.state && loc.state.message !== undefined){
+            dispatch(addToast({message:loc?.state?.message, messageType:MessageType.warn}))
+            window.history.replaceState({}, '')
         }
     },[])
     const loc = useLocation()

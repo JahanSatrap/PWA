@@ -6,6 +6,7 @@ import { device } from '../../../constant/info'
 import { serviceCalculatorPost } from '../../../core/services/network/bodyBuilding'
 import { addDevice } from './actions'
 import {reducer} from './reducer'
+import { MessageType } from '../../../constant/types/slices/toast-slice'
 
 const initialState: IBodyBuildingInitType = {
   serviceRequestResult: [
@@ -58,10 +59,11 @@ export const serviceRequest = createAsyncThunk('serviceRequest', async (value: s
     thunkAPI.dispatch(bodyBuilding.actions.setLoading(false))
   } catch (err: unknown) {
     const error = err as string
-    if (error === 'سرویسی برای این دستگاه پیدا نشد.') {
-      // errorToast('سرویس فعالی برای شما یافت نشد')
+    console.log(error)
+    if (error === 'لطفا میزان باقی مانده از قرار خود را چک کنید ') {
+      thunkAPI.dispatch(addToast({message:'سرویس فعالی برای شما یافت نشد',messageType:MessageType.error}))
     } else {
-      // errorToast(error)
+      thunkAPI.dispatch(addToast({message:error,messageType:MessageType.error}))
     }
     thunkAPI.dispatch(bodyBuilding.actions.setLoading(false))
   }

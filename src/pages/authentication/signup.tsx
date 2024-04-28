@@ -4,7 +4,7 @@ import validator from 'validator';
 import {useAppSelector} from '../../redux-toolkit/store/hooks'
 
 import {ISignUpForm} from '../../constant/types/components/authentication/signup'
-import Logo from '../../assets/logo.png'
+import Logo from '../../assets/white_logo.png'
 import {useAppDispatch} from '../../redux-toolkit/store/hooks'
 import {userSignUp} from '../../redux-toolkit/features/authentication/authentication-slice'
 import {Button, Date} from '../../core/component'
@@ -23,6 +23,7 @@ const SignUp = () => {
     FirstNameFa: "",
     LastNameFa: "",
     Email: "",
+    BirthDate: null
   }
 
   const getDirection = () => {
@@ -127,10 +128,11 @@ const SignUp = () => {
           control={control}
         />
         <Button text="ارسال" className="app_button_style" loading={isLoading} onClick={onSubmitHandler} disabled={isLoading}/>
-        <span>
-            قبلا ثبت نام کرده اید؟ برای ورود به سیستم
+        <div className="auth_login_nav_text">
+          قبلا ثبت نام کرده اید؟ برای ورود به سیستم 
           <span> </span><Link to="/">اینجا کلیک کنید</Link>
-        </span></form>
+        </div>
+      </form>
     </div>
   )
 }
