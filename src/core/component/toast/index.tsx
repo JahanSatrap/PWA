@@ -28,7 +28,7 @@ const Toast = () => {
     return (
         <div className="toast_container" dir="rtl">
             {state.map((item:any) => {
-                setTimeout(()=>dispatch(removeToast(item.id)),4000)
+                // setTimeout(()=>dispatch(removeToast(item.id)),4000)
                 return (
                     <motion.div
                         initial={{ opacity: 0, y:-10 }}

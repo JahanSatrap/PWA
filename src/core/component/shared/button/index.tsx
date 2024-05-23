@@ -13,12 +13,12 @@ const Button = ({text,loading, disabled=false,...props}:IInputComponentPropsType
             {...props}
             className={`${props.className} ${disabled ? "disabled": null}`}
         >
-            <span>
+              <div className="generalButtonContainer">
                 {loading
                   ?
                   <ThreeDots
                     visible={true}
-                    width= {width * 0.1}
+                    width= {width * 0.08}
                     color="white"
                     radius="9"
                     ariaLabel="three-dots-loading"
@@ -26,13 +26,13 @@ const Button = ({text,loading, disabled=false,...props}:IInputComponentPropsType
                     wrapperClass=""
                   />
                   :
-                  <div className="generalButtonContainer">
+                  <>
                     {text}
                     {props.endadornment} 
-                  </div>
-                }
+                  </>
+                  }
 
-            </span>
+                  </div>
         </button>
     )
 }

@@ -80,8 +80,8 @@ const QRCode = () => {
                     (
                         <ThreeDots
                             visible={true}
-                            height="40"
-                            width="40"
+                            height="80"
+                            width="80"
                             color="black"
                             radius="9"
                             ariaLabel="three-dots-loading"

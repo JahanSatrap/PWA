@@ -44,8 +44,9 @@ export const userSignUp = createAsyncThunk('auth/signUp', async (value: ISignUpP
   try {
     thunkAPI.dispatch(authSlice.actions.loading(true))
     await axios.post(`${host}/pwa/SignUp`, value)
+    console.log("a")
     thunkAPI.dispatch(authSlice.actions.loading(false))
-    useCreateToast('ثبت نام با موفقیت انجام شد', 'success')
+    thunkAPI.dispatch(addToast({message:'ثبت نام با موفقیت انجام شد', messageType:MessageType.success}))
   } catch (err: unknown) {
     const error = err as string
     thunkAPI.dispatch(authSlice.actions.loading(false))

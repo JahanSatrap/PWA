@@ -37,12 +37,14 @@ const BodyBuilding = () => {
         })
     }
     React.useEffect(() => {
-        guard()
-        if (loc.state && loc.state.message !== undefined){
-            dispatch(addToast({message:loc?.state?.message, messageType:MessageType.warn}))
-            window.history.replaceState({}, '')
-        }
+        // guard()
+        // if (loc.state && loc.state.message !== undefined){
+        //     dispatch(addToast({message:loc?.state?.message, messageType:MessageType.warn}))
+        //     window.history.replaceState({}, '')
+        // }
+        dispatch(addToast({message:"hello", messageType:MessageType.success}))
     },[])
+    
     const loc = useLocation()
     return (
         <div className="generalMainContainer">
@@ -68,7 +70,7 @@ const BodyBuilding = () => {
                     onClick={closetFree}
                     text="رهاسازی کمد"
                     loading={actionType === "close" && state.isLoading}
-                    disabled = {!state.isClosedSet}
+                    // disabled = {!state.isClosedSet}
                 />
                         
             </section>
